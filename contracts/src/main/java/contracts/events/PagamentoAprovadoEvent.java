@@ -8,8 +8,6 @@ public record PagamentoAprovadoEvent(
         UUID pedidoId,
         UUID clienteId,
         int valor,
-        Boolean x,
-        BigInteger a,
         Instant ocorridoEm
 ) implements IntegrationEvent {
 
