@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fiap.core.exception.PagamentoAindaPendenteException;
 import com.fiap.core.usecases.ProcessarPagamentoInteractor;
 import com.fiap.core.usecases.ProcessarPagamentoInputData;
-import contracts.events.PedidoCriadoEvent;
+import com.fiap.infra.events.*;
 import io.smallrye.reactive.messaging.annotations.Blocking;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -27,8 +27,8 @@ public class PedidoCriadoKafkaConsumer {
     @Blocking
     public void consume(String payload) {
         try {
-            PedidoCriadoEvent event =
-                    objectMapper.readValue(payload, PedidoCriadoEvent.class);
+           com.fiap.infra.events.PedidoCriadoEvent event =
+                    objectMapper.readValue(payload, com.fiap.infra.events.PedidoCriadoEvent.class);
 
             interactor.execute(
                     new ProcessarPagamentoInputData(

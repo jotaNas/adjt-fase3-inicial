@@ -3,8 +3,9 @@ package com.fiap.infra.event;
 import com.fiap.core.event.DomainEventPublisher;
 import com.fiap.core.usecases.ProcessarPagamentoInputData;
 import com.fiap.core.usecases.ProcessarPagamentoInteractor;
-import contracts.events.PagamentoAbandonadoEvent;
-import contracts.events.PagamentoPendenteEvent;
+
+import com.fiap.infra.events.PagamentoAbandonadoEvent;
+import com.fiap.infra.events.PagamentoPendenteEvent;
 import io.smallrye.reactive.messaging.annotations.Blocking;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;

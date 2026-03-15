@@ -2,8 +2,9 @@ package com.fiap.core.usecases;
 
 import com.fiap.core.event.DomainEventPublisher;
 import com.fiap.infra.PagamentoExterno;
-import contracts.events.PagamentoAprovadoEvent;
-import contracts.events.PagamentoPendenteEvent;
+
+
+import com.fiap.infra.events.PagamentoPendenteEvent;
 import io.smallrye.faulttolerance.api.CircuitBreakerName;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -55,7 +56,7 @@ public class ProcessarPagamentoInteractor {
         );
 
         eventPublisher.publish(
-                PagamentoAprovadoEvent.of(
+                com.fiap.infra.events.PagamentoAprovadoEvent.of(
                         input.pedidoId(),
                         input.clienteId(),
                         input.valor()
